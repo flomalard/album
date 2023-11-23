@@ -32,5 +32,13 @@ export const MOCK_ALBUMS: Albums[] = [
     "description": "Animaux de l'aquarium",
     "url": "https://media.istockphoto.com/id/529663148/fr/photo/grand-dauphin.jpg?s=612x612&w=0&k=20&c=YtVbKYD71ZGusC-hVHCKeg2MaYzg5y9PevRGf6mtyq8=",
     "picturesQuantity": 1,
+},
+{
+    "id": "5",
+    "ref": "Sortie",
+    "name": "Volière",
+    "description": "Animaux de la volière",
+    "url": "https://media.istockphoto.com/id/681388560/fr/photo/aigle-%C3%A0-t%C3%AAte-blanche-volant-au-dessus-de-leau-glac%C3%A9e.jpg?s=612x612&w=0&k=20&c=Pm48t87RDSVJg-zCX0qVHq4fTzV5CJk86-2Sy8jXB5Y=",
+    "picturesQuantity": 1,
 }
 ];

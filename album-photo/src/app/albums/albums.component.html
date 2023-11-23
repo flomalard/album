@@ -1,15 +1,24 @@
 <section>
-    <div class="arrow"></div>
+    <div 
+    class="arrow"
+    [class.disabled]="currentNavIndex === 1"
+    (click)="currentNavIndex > 1 ? loadNav(currentNavIndex - 1) : null"
+    ></div>
     <article
         *ngFor="let album of albums"
+        style="background-image: url({{ album.url }});"
     >
         <h2>{{ album.ref }} - {{ album.name }}</h2>
-        <img src="{{ album.url }}"/>
+
         <p>{{ album.description }}</p>
         <p>
             {{ album.picturesQuantity > 1 ? "Nombre de photos : " : "Nombre de photo :" }}
             {{ album.picturesQuantity }}
         </p>
     </article>
-    <div class="arrow"></div>
+    <div 
+    class="arrow"
+    
+    (click)="currentNavIndex < maxNavIndex ? loadNav(currentNavIndex + 1) : null"
+    >{{currentNavIndex}}</div>
 </section>
