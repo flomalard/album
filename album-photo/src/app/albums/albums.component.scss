@@ -1,0 +1,21 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+article {
+    flex-basis: 40%;
+
+    border: 2px solid red;
+    border-radius: 1rem;
+
+    margin: 1rem;
+}
+
+.arrow {
+    align-self: center;
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid blue;
+}
