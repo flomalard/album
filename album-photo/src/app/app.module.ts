@@ -8,6 +8,7 @@ import { AlbumPicturesComponent } from './album-pictures/album-pictures.componen
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

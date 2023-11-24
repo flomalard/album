@@ -2,4 +2,11 @@ div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-}    
+
+    padding: 2rem;
+}
+img {
+    margin: 1rem;
+
+    border: 1px solid #165512;
+}

@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mes Albums Photo';
+  date: Date = new Date(2023, 10, 24);
 }

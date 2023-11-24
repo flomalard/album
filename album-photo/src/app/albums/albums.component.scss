@@ -4,14 +4,16 @@ section {
     justify-content: space-around;
 
     padding: 1rem;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #165512;
+
+    background-color: #D2E3C8;
 }
 
 article {
     width: 40%;
     height: 20rem;
 
-    border: 2px solid red;
+    border: 3px solid #165512;
     border-radius: 1rem;
 
     margin: 1rem;
@@ -21,18 +23,34 @@ article {
     
 }
 
+.infos {
+    width: fit-content;
+
+    padding: 0.5rem;
+
+    border-radius: 1rem 0;
+    border-bottom: 1px solid #165512;
+    border-right: 1px solid #165512;
+
+    background-color: #D2E3C8;
+    opacity: 0.8;
+}
+
 .arrow {
     align-self: center;
-    height: 2rem;
-    width: 2rem;
-    border: 1px solid blue;
+    cursor: pointer;
+    
+    img {
+        width: 3rem;
+    }
 }
 
 .disabled {
-    border-color: grey;
+    opacity: 0.4;
+    cursor: auto;
 }
 
 .pictures {
     padding: 1rem;
-    border-bottom: 2px solid red;
+    background-color: #EBF3E8;
 }
