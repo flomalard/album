@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Picture } from '../interfaces/picture';
 import { MOCK_PICTURES } from '../mocks/pictures';
+import { Album } from '../interfaces/album';
 
 @Component({
   selector: 'app-album-pictures',
@@ -9,6 +10,8 @@ import { MOCK_PICTURES } from '../mocks/pictures';
 })
 export class AlbumPicturesComponent {
 
-  pictures: Picture[] = MOCK_PICTURES;
+  @Input() pictures!: Picture[];
+
+
   
 }

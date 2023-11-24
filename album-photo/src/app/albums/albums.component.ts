@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Album } from '../interfaces/album';
 import { MOCK_ALBUMS } from '../mocks/albums';
 import { AlbumService } from '../album.service';
+import { Picture } from '../interfaces/picture';
 
 @Component({
   selector: 'app-albums',
@@ -12,7 +13,9 @@ export class AlbumsComponent implements OnInit {
 
   albums: Album[] = MOCK_ALBUMS;
   selectedAlbum: Album | undefined;
-  albumPictures: string[] = [];
+  albumPictures: Picture[] = [];
+
+  albumName: Album[] = []
 
   currentNavIndex: number = 1;
   albumsPerNav: number = 2;
@@ -32,7 +35,7 @@ export class AlbumsComponent implements OnInit {
   }
   
   onSelect(album: Album) {
-    this.selectedAlbum= album;
-    console.log(album);
+    this.selectedAlbum = album;
+    this.albumPictures = this.albumService.getAlbumPictures(album.name)
   }
 }
