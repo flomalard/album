@@ -19,12 +19,13 @@
     </article>
     <div 
     class="arrow"
-    
+    [class.disabled]="currentNavIndex === maxNavIndex"
     (click)="currentNavIndex < maxNavIndex ? loadNav(currentNavIndex + 1) : null"
     ></div>
 </section>
 <div class="pictures">
-    <app-search/>
+    <app-search
+    (searchEmitter) = "updatePicturesOnSearch($event)"/>
     <app-album-pictures
     [pictures]="albumPictures"/>
 </div>

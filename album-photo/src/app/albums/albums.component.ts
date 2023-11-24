@@ -36,6 +36,10 @@ export class AlbumsComponent implements OnInit {
   
   onSelect(album: Album) {
     this.selectedAlbum = album;
-    this.albumPictures = this.albumService.getAlbumPictures(album.name)
+    this.albumPictures = this.albumService.getAlbumPictures(album.name);
+  }
+
+  updatePicturesOnSearch(pictures: Picture[]) {
+    this.albumPictures = pictures;
   }
 }

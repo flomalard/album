@@ -37,7 +37,7 @@ export class AlbumService {
     } else if (key === "journey") {
       return this.pictures.filter((p) => p.albumRef.includes("Vacances"));
     } else if (key === "ride") {
-      return this.pictures.filter((p) => p.albumRef.includes("sORTIE"));
+      return this.pictures.filter((p) => p.albumRef.includes("Sortie"));
     } else {
       return this.pictures.filter((p) => p.albumName.toLowerCase().includes(key));
     }

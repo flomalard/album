@@ -15,7 +15,6 @@ export class SearchComponent {
   albums: Album[] = MOCK_ALBUMS;
   selectedValue: string = "";
   
-
   @Output() searchEmitter = new EventEmitter<Picture[]>();
 
   constructor(private albumService: AlbumService) {}
@@ -23,7 +22,6 @@ export class SearchComponent {
   onSelect(form: NgForm) {
     const result: Picture[] = this.albumService.search(this.selectedValue);
     this.searchEmitter.emit(result);
-    console.log(result)
   }
 
 }
