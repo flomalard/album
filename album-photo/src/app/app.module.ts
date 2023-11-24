@@ -7,6 +7,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { AlbumPicturesComponent } from './album-pictures/album-pictures.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { FirstLetterMajPipe } from './first-letter-maj.pipe';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SearchComponent } from './search/search.component';
     AlbumsComponent,
     AlbumPicturesComponent,
     SearchComponent,
+    FirstLetterMajPipe,
   ],
   imports: [
     BrowserModule,

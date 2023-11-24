@@ -1,5 +1,5 @@
 <header>
-    <h1>{{ title }}</h1>
+    <h1>{{ title | firstLetterMaj }}</h1>
 </header>
 
 <main>
@@ -7,5 +7,5 @@
 </main>
 
 <footer>
-    <p>Dernières photos ajoutées le {{ date | date:"mediumDate" }}</p>
+    <p>Dernières photos ajoutées le {{ date | date:"d MMM yyyy" }}</p>
 </footer>

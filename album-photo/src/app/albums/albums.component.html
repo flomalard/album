@@ -7,7 +7,8 @@
     <article
         *ngFor="let album of albums"
         (click)="onSelect(album)"
-        style="background-image: url({{ album.url }});"
+        [class.selected]="isSelected && album === selectedAlbum"
+        [ngStyle]="{ 'background-image': 'url(' + album.url + ')' }"
     >   
         <div class="infos">
             <h2>{{ album.ref }} - {{ album.name }}</h2>

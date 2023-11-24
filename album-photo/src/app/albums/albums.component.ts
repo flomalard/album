@@ -21,6 +21,8 @@ export class AlbumsComponent implements OnInit {
   albumsPerNav: number = 2;
   maxNavIndex: number = Math.ceil((this.albums.length)/this.albumsPerNav);
 
+  isSelected: boolean = false;
+
   constructor(private albumService: AlbumService) {}
 
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class AlbumsComponent implements OnInit {
   onSelect(album: Album) {
     this.selectedAlbum = album;
     this.albumPictures = this.albumService.getAlbumPictures(album.name);
+    this.isSelected = true;
   }
 
   updatePicturesOnSearch(pictures: Picture[]) {

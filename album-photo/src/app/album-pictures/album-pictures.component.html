@@ -1,3 +1,7 @@
+<p>
+    {{ pictures.length > 1 ? "Nombre de photos : " : "Nombre de photo : " }}
+    {{ pictures.length }}
+</p>
 <div>
     <article
     *ngFor="let picture of pictures">
