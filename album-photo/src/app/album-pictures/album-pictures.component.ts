@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Picture } from '../interfaces/picture';
+import { MOCK_PICTURES } from '../mocks/pictures';
 
 @Component({
   selector: 'app-album-pictures',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AlbumPicturesComponent {
 
+  pictures: Picture[] = MOCK_PICTURES;
+  
 }

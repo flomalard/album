@@ -1,4 +1,4 @@
-export interface Pictures {
+export interface Picture {
     id: string;
     albumRef: string;
     albumName: string;

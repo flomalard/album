@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Albums } from '../interfaces/albums';
+import { Album } from '../interfaces/album';
 import { MOCK_ALBUMS } from '../mocks/albums';
 import { AlbumService } from '../album.service';
 
@@ -10,7 +10,9 @@ import { AlbumService } from '../album.service';
 })
 export class AlbumsComponent implements OnInit {
 
-  albums: Albums[] = MOCK_ALBUMS;
+  albums: Album[] = MOCK_ALBUMS;
+  selectedAlbum: Album | undefined;
+  albumPictures: string[] = [];
 
   currentNavIndex: number = 1;
   albumsPerNav: number = 2;
@@ -29,4 +31,8 @@ export class AlbumsComponent implements OnInit {
     this.currentNavIndex = page;
   }
   
+  onSelect(album: Album) {
+    this.selectedAlbum= album;
+    console.log(album);
+  }
 }

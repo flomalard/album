@@ -1,6 +1,6 @@
-import { Albums } from "../interfaces/albums"; 
+import { Album } from "../interfaces/album"; 
 
-export const MOCK_ALBUMS: Albums[] = [
+export const MOCK_ALBUMS: Album[] = [
   {
     "id": "1",
     "ref": "Vacances",

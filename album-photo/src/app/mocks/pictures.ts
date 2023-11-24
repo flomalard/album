@@ -1,6 +1,6 @@
-import { Pictures } from "../interfaces/pictures"; 
+import { Picture } from "../interfaces/picture"; 
 
-export const MOCK_PICTURES: Pictures[] = [
+export const MOCK_PICTURES: Picture[] = [
 {
     "id": "1",
     "albumRef": "Vacances",

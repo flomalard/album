@@ -1,4 +1,4 @@
-<section>
+<section class="nav">
     <div 
     class="arrow"
     [class.disabled]="currentNavIndex === 1"
@@ -6,6 +6,7 @@
     ></div>
     <article
         *ngFor="let album of albums"
+        (click)="onSelect(album)"
         style="background-image: url({{ album.url }});"
     >
         <h2>{{ album.ref }} - {{ album.name }}</h2>
@@ -20,5 +21,8 @@
     class="arrow"
     
     (click)="currentNavIndex < maxNavIndex ? loadNav(currentNavIndex + 1) : null"
-    >{{currentNavIndex}}</div>
+    ></div>
 </section>
+<div>
+    <app-album-pictures/>
+</div>
