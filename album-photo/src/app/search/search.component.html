@@ -1,0 +1,15 @@
+<form 
+#search="ngForm"
+(ngSubmit)="onSelect(search)">
+    <select 
+    name="selectedValue"
+    [(ngModel)]="selectedValue">
+        <option value="empty"></option>
+        <option value="all">Toutes les photos</option>
+        <option value="journey">Photos de voyage</option>
+        <option value="ride">Photos de sorties</option>
+        <option *ngFor="let album of albums" value="{{album.name}}">{{album.name}}</option>
+    </select>
+
+    <button type="submit">Rechercher</button>
+</form>

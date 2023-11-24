@@ -23,7 +23,8 @@
     (click)="currentNavIndex < maxNavIndex ? loadNav(currentNavIndex + 1) : null"
     ></div>
 </section>
-<div>
+<div class="pictures">
+    <app-search/>
     <app-album-pictures
     [pictures]="albumPictures"/>
 </div>

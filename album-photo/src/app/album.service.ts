@@ -26,4 +26,20 @@ export class AlbumService {
     }
     return [];
   }
+
+  search(keyword: string): Picture[] {
+    const key = keyword.toLowerCase();
+
+    if (key === "empty") {
+      return [];
+    } else if (key === "all") {
+      return this.pictures;
+    } else if (key === "journey") {
+      return this.pictures.filter((p) => p.albumRef.includes("Vacances"));
+    } else if (key === "ride") {
+      return this.pictures.filter((p) => p.albumRef.includes("sORTIE"));
+    } else {
+      return this.pictures.filter((p) => p.albumName.toLowerCase().includes(key));
+    }
+  }
 }

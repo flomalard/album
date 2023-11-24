@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { AlbumPicturesComponent } from './album-pictures/album-pictures.component';
 import { FormsModule } from '@angular/forms';
-import { SearchComponentComponent } from './search-component/search-component.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumsComponent,
     AlbumPicturesComponent,
-    SearchComponentComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
