@@ -1,5 +1,6 @@
 import express from "express";
 import { connect } from "./mongoose/index.js";
+import routes from "./routes/index.js";
 
 const PORT = 3000; //on défini le port du serveur
 
@@ -8,10 +9,14 @@ app.use(express.json()); //retour format json
 
 connect();
 
+// les routes utilisés dans routes/index.js seront préfixés d' /api
+// http://localhost:3000/api/
+app.use('/api', routes);
 
 // réponse attendu sur http://localhost:3000/
 app.get('/', (req, res) => {
-    res.status(200).json({
+    // res.send('Hello World!'); pour un simple format texte
+    res.status(200).json({   //pour un format json
         // importance de status ?
         data: ["Hello", "World"],
         message: "Ceci est un test"
