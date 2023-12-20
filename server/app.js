@@ -1,9 +1,12 @@
 import express from "express";
+import { connect } from "./mongoose/index.js";
 
 const PORT = 3000; //on défini le port du serveur
 
 const app = express(); //lancement serveur
 app.use(express.json()); //retour format json
+
+connect();
 
 
 // réponse attendu sur http://localhost:3000/
@@ -11,7 +14,7 @@ app.get('/', (req, res) => {
     res.status(200).json({
         // importance de status ?
         data: ["Hello", "World"],
-        message: "OK c'est bon"
+        message: "Ceci est un test"
     });
 });
 
