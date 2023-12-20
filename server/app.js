@@ -17,7 +17,7 @@ app.use('/api', routes);
 app.get('/', (req, res) => {
     // res.send('Hello World!'); pour un simple format texte
     res.status(200).json({   //pour un format json
-        // importance de status ?
+        // importance de status
         data: ["Hello", "World"],
         message: "Ceci est un test"
     });
@@ -34,6 +34,6 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Adress: http://localhost:${PORT}`)
-  // dans le terminal, pas la console ?
+  // dans le terminal, pas la console
 });
 

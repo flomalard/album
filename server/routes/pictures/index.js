@@ -1,14 +1,13 @@
 import express from "express";
-import { Album } from "../../models/Album.js";
-import { MOCK_ALBUMS } from "../../mock/albums.js";
+import { Picture } from "../../models/Picture.js";
+import { MOCK_PICTURES } from "../../mock/pictures.js";
 
-const albums = express();
+const pictures = express();
 
-// affichage au format json des albums
-// http://localhost:3000/api/albums
-albums.get('/', (request, response) => {
-    Album.find({}).then(albums => {
-        response.status(200).json(albums);
+// http://localhost:3000/api/pictures
+pictures.get('/', (request, response) => {
+    Picture.find({}).then(pictures => {
+        response.status(200).json(pictures);
     }).catch(err => {
         response.status(400).json(err);
     })
@@ -18,12 +17,12 @@ albums.get('/', (request, response) => {
 
 
 // Récupération des données du mock et stockage dans la db, le mock et cette request deviennent obsolètes après utilisation
-// http://localhost:3000/api/albums/seed
+// http://localhost:3000/api/pictures/seed
 /*
 
-albums.get('/seed', (request, response) => {
-    Album.insertMany(MOCK_ALBUMS).then(albums => 
-        response.status(200).json({data: albums, message: 'OK!'})
+pictures.get('/seed', (request, response) => {
+    Picture.insertMany(MOCK_PICTURES).then(pictures => 
+        response.status(200).json({data: pictures, message: 'OK!'})
     ).catch(err => {
         response.status(400).json(err);
     });
@@ -31,10 +30,12 @@ albums.get('/seed', (request, response) => {
 
 */
 
-// http://localhost:3000/api/albums/:id
-albums.get('/:id', (req, res) => {
+
+
+// http://localhost:3000/api/pictures/:id
+pictures.get('/:id', (req, res) => {
     const {id} = req.params
-    Album.findById(id)
+    Picture.findById(id)
 
     // JeNommeCommeJeVeux, donnée récupérée par get
     .then((JeNommeCommeJeVeux) => {
@@ -52,4 +53,4 @@ albums.get('/:id', (req, res) => {
     })
 })
 
-export default albums
+export default pictures

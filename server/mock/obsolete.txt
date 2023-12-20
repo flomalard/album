@@ -1,0 +1,1 @@
+Après l'ajout des données des mock dans la DB, ils deviennet obsolètes, ce fichier pourrait être supprimmé.
