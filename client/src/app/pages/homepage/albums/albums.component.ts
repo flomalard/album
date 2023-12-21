@@ -11,11 +11,9 @@ import { Picture } from '../../../interfaces/picture';
 })
 export class AlbumsComponent implements OnInit {
 
-  albums: Album[] = MOCK_ALBUMS;
+  albums: Album[] = [];
   selectedAlbum: Album | undefined;
   albumPictures: Picture[] = [];
-
-  albumName: Album[] = []
 
   currentNavIndex: number = 1;
   albumsPerNav: number = 2;
@@ -27,6 +25,9 @@ export class AlbumsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadNav(this.currentNavIndex);
+    this.albumService.findAlbums().subscribe((MesAlbums: any) => {
+      this.albums = MesAlbums
+    })
   }
 
   loadNav(page: number) {

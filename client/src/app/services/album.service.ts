@@ -7,7 +7,7 @@ import { MOCK_PICTURES } from '../mocks/pictures';
 import { HttpClient } from '@angular/common/http';
 
 const ALBUM_API_URL = 'http://localhost:3000/api/albums';
-const PICTURES_API_URL = 'http://localhost:3000/api/albums';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,15 @@ export class AlbumService {
   private albums: Album[] = MOCK_ALBUMS;
   private pictures: Picture[] = MOCK_PICTURES;
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  findAlbums() {
+    return this.http.get(ALBUM_API_URL)
+  }
+  
+  findAlbumbyId(id:string) {
+    return this.http.get(ALBUM_API_URL + '/' + id)
+  }
 
   navPaginate(start: number, end: number): Album[] {
     return this.albums.slice(start, end);
