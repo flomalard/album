@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Picture } from '../interfaces/picture';
+import { Picture } from '../../../interfaces/picture';
 
 @Component({
   selector: 'app-album-pictures',

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Album } from '../interfaces/album';
 import { MOCK_ALBUMS } from '../mocks/albums';
 import { NgForm } from '@angular/forms';
-import { AlbumService } from '../album.service';
+import { AlbumService } from '../services/album.service';
 import { Picture } from '../interfaces/picture';
 
 @Component({

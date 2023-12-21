@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Album } from '../interfaces/album';
-import { MOCK_ALBUMS } from '../mocks/albums';
-import { AlbumService } from '../album.service';
-import { Picture } from '../interfaces/picture';
+import { Album } from '../../../interfaces/album';
+import { MOCK_ALBUMS } from '../../../mocks/albums';
+import { AlbumService } from '../../../services/album.service';
+import { Picture } from '../../../interfaces/picture';
 
 @Component({
   selector: 'app-albums',

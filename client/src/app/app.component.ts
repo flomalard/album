@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'mes albums photo';
-  date: Date = new Date(2023, 10, 24);
+
 }

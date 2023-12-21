@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
-import { MOCK_ALBUMS } from './mocks/albums';
-import { Album } from './interfaces/album';
-import { Picture } from './interfaces/picture';
-import { MOCK_PICTURES } from './mocks/pictures';
+import { MOCK_ALBUMS } from '../mocks/albums';
+import { Album } from '../interfaces/album';
+import { Picture } from '../interfaces/picture';
+import { MOCK_PICTURES } from '../mocks/pictures';
+
+import { HttpClient } from '@angular/common/http';
+
+const ALBUM_API_URL = 'http://localhost:3000/api/albums';
+const PICTURES_API_URL = 'http://localhost:3000/api/albums';
 
 @Injectable({
   providedIn: 'root'

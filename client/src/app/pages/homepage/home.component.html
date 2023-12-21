@@ -1,0 +1,11 @@
+<header>
+    <h1>{{ title | firstLetterMaj }}</h1>
+</header>
+
+<main>
+    <app-albums/>
+</main>
+
+<footer>
+    <p>Dernières photos ajoutées le {{ date | date:"d MMM yyyy" }}</p>
+</footer>
