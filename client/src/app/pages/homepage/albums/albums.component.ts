@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Album } from '../../../interfaces/album';
-import { MOCK_ALBUMS } from '../../../mocks/albums';
 import { AlbumService } from '../../../services/album.service';
 import { Picture } from '../../../interfaces/picture';
 
@@ -17,7 +16,7 @@ export class AlbumsComponent implements OnInit {
 
   currentNavIndex: number = 1;
   albumsPerNav: number = 2;
-  maxNavIndex: number = Math.ceil((this.albums.length)/this.albumsPerNav);
+  maxNavIndex: number = 1;
 
   isSelected: boolean = false;
 
@@ -25,11 +24,10 @@ export class AlbumsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadNav(this.currentNavIndex);
-    /* this.albumService.findAlbums().subscribe((MesAlbums: any) => {
-      this.albums = MesAlbums;
-    }) */
+
+    // a modifier ?
     this.albumService.maxNavIndex().subscribe((maxIndex: number) => {
-      console.log('Maximum Navigation Index:', maxIndex);
+      this.maxNavIndex = maxIndex;
     });
   }
 
@@ -43,7 +41,9 @@ export class AlbumsComponent implements OnInit {
   
   onSelect(album: Album) {
     this.selectedAlbum = album;
-    this.albumPictures = this.albumService.getAlbumPictures(album.name);
+    this.albumService.getAlbumPicturesByAlbumName(album.name).subscribe((pictures) => {
+      this.albumPictures = pictures;
+    });
     this.isSelected = true;
   }
 

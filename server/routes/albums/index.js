@@ -5,18 +5,6 @@ import { MOCK_ALBUMS } from "../../mock/albums.js";
 const albums = express();
 
 
-albums.get('/album_number',(req,res) => {
-    Album.countDocuments({})
-    .then((number) => {
-        console.log(number)
-        res.status(200).json(number)
-    }).catch(err => {
-        console.log(err)
-        res.status(400).json(err)
-    })
-})
-
-
 // affichage au format json des albums
 // http://localhost:3000/api/albums
 albums.get('/', (request, response) => {
@@ -50,6 +38,16 @@ albums.get('/seed', (request, response) => {
 
 
 
+// ne fonctionne pas si en dessous de /:id moins spécifique
+// http://localhost:3000/api/albums/album_number/
+albums.get('/album_number',(req,res) => {
+    Album.countDocuments({})
+    .then((number) => {
+        res.status(200).json(number)
+    }).catch(err => {
+        res.status(400).json(err)
+    })
+})
 
 
 // http://localhost:3000/api/albums/:id
@@ -61,7 +59,7 @@ albums.get('/:id', (req, res) => {
     .then((JeNommeCommeJeVeux) => {
 
         // si JeNommeCommeJeVeux est vide
-        if (!JeNommeCommeJeVeux) {
+        if (!JeNommeCommeJeVeux || JeNommeCommeJeVeux === 0) {
             res.status(404).send('Error 404, Not Found')
 
             // sinon JeNommeCommeJeVeux s'affiche, le else est important, puisque res n'effectu pas de return. Sans lui, si on entre dans la 404, on ira ensuite dans la 200
@@ -72,7 +70,5 @@ albums.get('/:id', (req, res) => {
         res.status(400).json(err)
     })
 })
-
-
 
 export default albums

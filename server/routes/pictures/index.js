@@ -31,7 +31,6 @@ pictures.get('/seed', (request, response) => {
 */
 
 
-
 // http://localhost:3000/api/pictures/:id
 pictures.get('/:id', (req, res) => {
     const {id} = req.params
@@ -41,7 +40,7 @@ pictures.get('/:id', (req, res) => {
     .then((JeNommeCommeJeVeux) => {
 
         // si JeNommeCommeJeVeux est vide
-        if (!JeNommeCommeJeVeux) {
+        if (!JeNommeCommeJeVeux || JeNommeCommeJeVeux === 0) {
             res.status(404).send('Error 404, Not Found')
 
             // sinon JeNommeCommeJeVeux s'affiche, le else est important, puisque res n'effectu pas de return. Sans lui, si on entre dans la 404, on ira ensuite dans la 200
@@ -52,5 +51,41 @@ pictures.get('/:id', (req, res) => {
         res.status(400).json(err)
     })
 })
+
+
+// http://localhost:3000/api/pictures/albumref/:albumRef
+pictures.get('/albumref/:albumRef', (req, res) => {
+    const { albumRef } = req.params;
+
+    Picture.find({ albumRef: albumRef })
+        .then((pictures) => {
+            if (!pictures || pictures.length === 0) {
+                res.status(404).send('Error 404, Not Found');
+            } else {
+                res.status(200).json(pictures);
+            }
+        })
+        .catch((err) => {
+            res.status(400).json(err);
+        });
+});
+
+
+// http://localhost:3000/api/pictures/albumname/:albumName
+pictures.get('/albumname/:albumName', (req, res) => {
+    const { albumName } = req.params;
+
+    Picture.find({ albumName: albumName })
+        .then((pictures) => {
+            if (!pictures || pictures.length === 0) {
+                res.status(404).send('Error 404, Not Found');
+            } else {
+                res.status(200).json(pictures);
+            }
+        })
+        .catch((err) => {
+            res.status(400).json(err);
+        });
+});
 
 export default pictures

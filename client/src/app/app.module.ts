@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AlbumsComponent } from './pages/homepage/albums/albums.component';
 import { AlbumPicturesComponent } from './pages/homepage/album-pictures/album-pictures.component';
 import { FormsModule } from '@angular/forms';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './pages/homepage/search/search.component';
 import { FirstLetterMajPipe } from './pipes/first-letter-maj.pipe';
 import { HomeComponent } from './pages/homepage/home.component';
 
