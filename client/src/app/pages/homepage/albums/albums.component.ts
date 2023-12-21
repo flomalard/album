@@ -28,6 +28,9 @@ export class AlbumsComponent implements OnInit {
     /* this.albumService.findAlbums().subscribe((MesAlbums: any) => {
       this.albums = MesAlbums;
     }) */
+    this.albumService.maxNavIndex().subscribe((maxIndex: number) => {
+      console.log('Maximum Navigation Index:', maxIndex);
+    });
   }
 
   loadNav(page: number) {

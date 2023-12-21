@@ -4,6 +4,19 @@ import { MOCK_ALBUMS } from "../../mock/albums.js";
 
 const albums = express();
 
+
+albums.get('/album_number',(req,res) => {
+    Album.countDocuments({})
+    .then((number) => {
+        console.log(number)
+        res.status(200).json(number)
+    }).catch(err => {
+        console.log(err)
+        res.status(400).json(err)
+    })
+})
+
+
 // affichage au format json des albums
 // http://localhost:3000/api/albums
 albums.get('/', (request, response) => {
@@ -35,6 +48,10 @@ albums.get('/seed', (request, response) => {
 
 */
 
+
+
+
+
 // http://localhost:3000/api/albums/:id
 albums.get('/:id', (req, res) => {
     const {id} = req.params
@@ -56,14 +73,6 @@ albums.get('/:id', (req, res) => {
     })
 })
 
-albums.get('/Album_Number', (req,res) => {
 
-    Album.countDocuments({})
-    .then((test) => {
-        res.status(200).json(test)
-    }).catch(err => {
-        res.statut(400).json(err)
-    })
-})
 
 export default albums

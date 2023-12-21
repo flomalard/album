@@ -5,6 +5,7 @@ import { Picture } from '../interfaces/picture';
 import { MOCK_PICTURES } from '../mocks/pictures';
 
 import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 
 const ALBUM_API_URL = 'http://localhost:3000/api/albums';
 
@@ -30,6 +31,18 @@ export class AlbumService {
   navPaginate(start: number, end: number) {
     return this.http.get<Album[]>(`${ALBUM_API_URL}?limit=${end}&start=${start}`);
   }
+
+  albumCount() {
+    return this.http.get<number>(ALBUM_API_URL + '/album_number');
+  }
+
+
+  maxNavIndex() {
+    return this.albumCount().pipe(
+      map((count: number) => Math.ceil(count / 2))
+    );
+  }
+  
 
   getAlbumPictures(albumName: string): Picture[] {
     let pictures = this.pictures.filter((a) => a.albumName == albumName)
