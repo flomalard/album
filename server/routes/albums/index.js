@@ -7,7 +7,11 @@ const albums = express();
 // affichage au format json des albums
 // http://localhost:3000/api/albums
 albums.get('/', (request, response) => {
-    Album.find({}).then(albums => {
+
+    const start = parseInt(request.query.start) || 0;
+    const limit = parseInt(request.query.limit) || 5;
+
+    Album.find({}).limit(limit).skip(start).then(albums => {
         response.status(200).json(albums);
     }).catch(err => {
         response.status(400).json(err);
@@ -49,6 +53,16 @@ albums.get('/:id', (req, res) => {
         }
     }).catch(err => {
         res.status(400).json(err)
+    })
+})
+
+albums.get('/Album_Number', (req,res) => {
+
+    Album.countDocuments({})
+    .then((test) => {
+        res.status(200).json(test)
+    }).catch(err => {
+        res.statut(400).json(err)
     })
 })
 

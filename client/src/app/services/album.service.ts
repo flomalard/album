@@ -27,8 +27,8 @@ export class AlbumService {
     return this.http.get(ALBUM_API_URL + '/' + id)
   }
 
-  navPaginate(start: number, end: number): Album[] {
-    return this.albums.slice(start, end);
+  navPaginate(start: number, end: number) {
+    return this.http.get<Album[]>(`${ALBUM_API_URL}?limit=${end}&start=${start}`);
   }
 
   getAlbumPictures(albumName: string): Picture[] {

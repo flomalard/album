@@ -25,15 +25,16 @@ export class AlbumsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadNav(this.currentNavIndex);
-    this.albumService.findAlbums().subscribe((MesAlbums: any) => {
-      this.albums = MesAlbums
-    })
+    /* this.albumService.findAlbums().subscribe((MesAlbums: any) => {
+      this.albums = MesAlbums;
+    }) */
   }
 
   loadNav(page: number) {
     const start = (page -1) * this.albumsPerNav;
-    const end = start + this.albumsPerNav
-    this.albums = this.albumService.navPaginate(start,end);
+    this.albumService.navPaginate(start,2).subscribe((TwoAlbumsPerPage) => {
+      this.albums = TwoAlbumsPerPage;
+    })
     this.currentNavIndex = page;
   }
   
