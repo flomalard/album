@@ -83,8 +83,7 @@ export class AlbumService {
   } */
 
   search(keyword: string): Observable<Picture[]> {
-    const key = keyword.toLowerCase();
-  
+    const key = keyword
     if (key === "empty") {
       return of([]);
     } else if (key === "all") {
