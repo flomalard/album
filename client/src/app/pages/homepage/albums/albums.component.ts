@@ -25,7 +25,10 @@ export class AlbumsComponent implements OnInit {
   ngOnInit(): void {
     this.loadNav(this.currentNavIndex);
 
-    // a modifier ?
+    this.albumService.searchAlbumPictures$.subscribe((pictures: Picture[]) => {
+      this.updatePicturesOnSearch(pictures);
+    });
+    
     this.albumService.maxNavIndex().subscribe((maxIndex: number) => {
       this.maxNavIndex = maxIndex;
     });

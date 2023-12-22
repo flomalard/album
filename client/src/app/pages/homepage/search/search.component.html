@@ -8,7 +8,7 @@
         <option value="all">Toutes les photos</option>
         <option value="journey">Photos de voyage</option>
         <option value="ride">Photos de sorties</option>
-        <option *ngFor="let album of albums" value="{{album.name}}">{{album.name}}</option>
+        <option *ngFor="let album of albums" [value]="album.name">{{album.name}}</option>
     </select>
 
     <button type="submit">Rechercher</button>

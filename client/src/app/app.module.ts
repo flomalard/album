@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './pages/homepage/search/search.component';
 import { FirstLetterMajPipe } from './pipes/first-letter-maj.pipe';
 import { HomeComponent } from './pages/homepage/home.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HomeComponent } from './pages/homepage/home.component';
     SearchComponent,
     FirstLetterMajPipe,
     HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

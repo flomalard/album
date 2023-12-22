@@ -4,7 +4,7 @@ import { Picture } from '../interfaces/picture';
 import { MOCK_PICTURES } from '../mocks/pictures';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, of } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 
 const ALBUM_API_URL = 'http://localhost:3000/api/albums';
 const PICTURE_API_URL = 'http://localhost:3000/api/pictures';
@@ -17,10 +17,17 @@ export class AlbumService {
 
   private pictures: Picture[] = [];
 
+  // le BehaviorSubject écoute et se met à jour
+  searchAlbumPictures = new BehaviorSubject<Picture[]>([]);
+  // il est transformé en observable pour pouvoir être récupéré
+  searchAlbumPictures$ = this.searchAlbumPictures.asObservable();
+
   constructor(private http:HttpClient) { }
 
   findAlbums() {
-    return this.http.get(ALBUM_API_URL)
+    return this.http.get<Album[]>(ALBUM_API_URL)
+    // pas de <Album[]> ?
+    // la nécessité dépend de la structure du code, le mettre rest toutefois une bonne pratique
   }
   
   // pas utile
@@ -66,6 +73,7 @@ export class AlbumService {
     return this.http.get<Picture[]>(`${PICTURE_API_URL}/albumref/${albumRef}`);
   }
 
+  // ancienne méthode
   /* search(keyword: string): Observable<Picture[]> {
     const key = keyword.toLowerCase();
 
@@ -97,6 +105,3 @@ export class AlbumService {
     }
   }
 }
-
-
-

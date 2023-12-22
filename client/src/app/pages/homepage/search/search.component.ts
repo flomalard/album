@@ -15,7 +15,8 @@ export class SearchComponent {
   albums: Album[] = [];
   selectedValue: string = "";
   
-  @Output() searchEmitter = new EventEmitter<Picture[]>();
+  //@Output() searchEmitter = new EventEmitter<Picture[]>();
+  // dans le search, je .next(nouvelle valeur) on next toujours au behavior subject
 
   constructor(private albumService: AlbumService) {}
 
@@ -32,9 +33,12 @@ export class SearchComponent {
   } */
 
   onSelect(form: NgForm) {
+    // je récupère mes données en fonction de selected.value
     this.albumService.search(this.selectedValue).subscribe((result: Picture[]) => {
       console.log(this.selectedValue)
-      this.searchEmitter.emit(result);
+      this.albumService.searchAlbumPictures.next(result)
+      // je communique à searchAlbumPictures une nouvelle valeur
+      // pour récupérer cette valeur, on écoutera  son observable, soit searchAlbumPictures$
     });
   }
 
